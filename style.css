@@ -1,0 +1,361 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    background-color: #f4ebd0;
+    background-image: 
+        radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.08), transparent 70%),
+        linear-gradient(135deg, #e6d7b8 0%, #f4ebd0 50%, #dfcea8 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+    padding: 16px;
+    color: #3d2b1f;
+}
+
+/* Main Parchment Manuscript Container */
+.parchment-card {
+    background: #fdf8eb;
+    border: 2px solid #b89768;
+    border-radius: 18px;
+    padding: 28px 22px;
+    width: 100%;
+    max-width: 380px;
+    text-align: center;
+    box-shadow: 
+        0 15px 35px rgba(61, 43, 31, 0.15),
+        inset 0 0 40px rgba(184, 151, 104, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Progress Bar */
+.scroll-track {
+    width: 100%;
+    height: 6px;
+    background: rgba(184, 151, 104, 0.25);
+    border-radius: 10px;
+    margin-bottom: 22px;
+    overflow: hidden;
+}
+
+.scroll-bar {
+    width: 10%;
+    height: 100%;
+    background: linear-gradient(90deg, #8b261d, #c59b27);
+    transition: width 0.4s ease;
+    border-radius: 10px;
+}
+
+/* Stage Visibility & Smooth Animation */
+.stage {
+    display: none;
+    animation: fadeInStage 0.4s ease-out;
+}
+
+.stage.active {
+    display: block;
+}
+
+@keyframes fadeInStage {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Wax Seal Badge */
+.wax-seal {
+    display: inline-block;
+    background: #8b261d;
+    color: #fcf8f0;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 14px;
+    border: 1px solid #c59b27;
+}
+
+.gold-seal {
+    background: #c59b27;
+    color: #2b1a0e;
+    border-color: #8b261d;
+}
+
+.hero-icon {
+    font-size: 48px;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+/* Typography */
+.main-title, .section-title {
+    font-family: 'Cinzel', serif;
+    font-size: 21px;
+    font-weight: 800;
+    color: #3d2b1f;
+    margin-bottom: 8px;
+}
+
+.gold-head {
+    color: #8b261d;
+    font-size: 22px;
+}
+
+.subtitle {
+    font-size: 13.5px;
+    color: #5c4333;
+    line-height: 1.5;
+    margin-bottom: 22px;
+    font-weight: 500;
+}
+
+/* Primary Button */
+.primary-btn {
+    font-family: 'Cinzel', serif;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 13px 22px;
+    border: 1.5px solid #3d2b1f;
+    border-radius: 25px;
+    background: #3d2b1f;
+    color: #fcf8f0;
+    cursor: pointer;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    box-shadow: 0 4px 12px rgba(61, 43, 31, 0.2);
+    transition: all 0.2s ease;
+    touch-action: manipulation;
+}
+
+.primary-btn:active {
+    transform: scale(0.97);
+}
+
+.primary-btn.locked {
+    opacity: 0.5;
+    pointer-events: none;
+    box-shadow: none;
+}
+
+/* Quote Cards */
+.parchment-quote {
+    background: rgba(184, 151, 104, 0.12);
+    padding: 16px;
+    border-radius: 12px;
+    border-left: 4px solid #8b261d;
+    margin-bottom: 22px;
+    text-align: left;
+}
+
+.student-quote {
+    border-left-color: #c59b27;
+    background: rgba(197, 155, 39, 0.12);
+}
+
+.parchment-quote p {
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: #3d2b1f;
+    font-style: italic;
+}
+
+/* Slider (Stage 4) */
+.compass-box {
+    margin: 18px 0 24px;
+}
+
+.compass-display {
+    font-family: 'Cinzel', serif;
+    font-size: 32px;
+    font-weight: 800;
+    color: #8b261d;
+    margin-bottom: 10px;
+}
+
+input[type=range] {
+    width: 100%;
+    accent-color: #8b261d;
+    height: 6px;
+    border-radius: 10px;
+}
+
+/* Dodgy Buttons (Stage 5) */
+.dodgy-actions {
+    display: flex;
+    gap: 10px;
+    min-height: 55px;
+    position: relative;
+    margin-top: 10px;
+}
+
+.yes-btn {
+    background: #1b4332;
+    border-color: #1b4332;
+    color: #ffffff;
+    width: 60%;
+}
+
+.dodge-btn {
+    background: #8b261d;
+    border-color: #8b261d;
+    color: #ffffff;
+    width: 35%;
+    position: absolute;
+    right: 0;
+    transition: transform 0.15s ease-out;
+}
+
+.hint-text {
+    font-size: 12px;
+    font-weight: 600;
+    color: #8b261d;
+    margin-top: 14px;
+    min-height: 20px;
+}
+
+/* Quiz Stack (Stage 6) */
+.quiz-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+.quiz-option {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 13.5px;
+    font-weight: 600;
+    padding: 12px 16px;
+    border-radius: 20px;
+    background: rgba(184, 151, 104, 0.15);
+    color: #3d2b1f;
+    border: 1px solid rgba(184, 151, 104, 0.4);
+    cursor: pointer;
+}
+
+.correct-opt {
+    background: #8b261d;
+    color: #fcf8f0;
+    border: none;
+}
+
+/* Rune Box (Stage 7) */
+.rune-box {
+    background: rgba(139, 38, 29, 0.08);
+    border: 1px dashed #8b261d;
+    padding: 14px;
+    border-radius: 12px;
+    margin-bottom: 16px;
+}
+
+.rune-box code {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: #8b261d;
+}
+
+/* Artifact Trigger (Stage 8) */
+.artifact-trigger {
+    margin: 18px auto 10px;
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.artifact-emoji {
+    font-size: 64px;
+    position: relative;
+    z-index: 2;
+    animation: artifactFloat 2.5s ease-in-out infinite;
+}
+
+@keyframes artifactFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+}
+
+.artifact-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90px;
+    height: 90px;
+    background: radial-gradient(circle, rgba(197, 155, 39, 0.4) 0%, transparent 70%);
+    z-index: 1;
+}
+
+/* Final Scroll Card (Stage 9) */
+.final-scroll-card {
+    background: rgba(255, 255, 255, 0.6);
+    padding: 16px;
+    border-radius: 14px;
+    border: 1px solid rgba(184, 151, 104, 0.3);
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.final-scroll-card p {
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: #3d2b1f;
+}
+
+/* Master Signature Scroll (Stage 10) */
+.master-signature-scroll {
+    background: rgba(197, 155, 39, 0.12);
+    border: 2px dashed #c59b27;
+    border-radius: 16px;
+    padding: 18px;
+    margin-bottom: 22px;
+    text-align: center;
+}
+
+.star-badge {
+    display: inline-block;
+    background: #c59b27;
+    color: #2b1a0e;
+    font-size: 10px;
+    font-weight: 800;
+    padding: 3px 10px;
+    border-radius: 12px;
+    margin-bottom: 8px;
+}
+
+.sig-text {
+    font-size: 12px;
+    color: #5c4333;
+    margin-bottom: 4px;
+}
+
+.sig-name {
+    font-family: 'Cinzel', serif;
+    font-size: 20px;
+    font-weight: 800;
+    color: #8b261d;
+    margin-bottom: 4px;
+}
+
+.sig-tag {
+    font-size: 12.5px;
+    color: #3d2b1f;
+    font-weight: 600;
+}
+
+.replay-btn {
+    background: #c59b27;
+    color: #2b1a0e;
+    border-color: #c59b27;
+}
