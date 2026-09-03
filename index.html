@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Tajpreet Ma'am - SST Chronicles 📜</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main class="parchment-card">
+
+        <div class="scroll-track">
+            <div class="scroll-bar" id="progressBar"></div>
+        </div>
+
+        <section id="stage1" class="stage active">
+            <div class="wax-seal">HISTORICAL ARCHIVE</div>
+            <div class="hero-icon">📜</div>
+            <h1 class="main-title">The Chronicles of SST</h1>
+            <p class="subtitle">Welcome Tajpreet Ma'am! Explore this 10-Stage interactive manuscript crafted in your honor.</p>
+            <button class="primary-btn" onclick="nextStage(1, 2)">
+                <span>Unroll The Scroll</span>
+                <span class="arrow">➔</span>
+            </button>
+        </section>
+
+        <section id="stage2" class="stage">
+            <div class="wax-seal">HISTORIAN LOG 🏛️</div>
+            <div class="hero-icon">🏰</div>
+            <h2 class="section-title">The Master Time Traveler</h2>
+            <div class="parchment-quote">
+                <p>"SST ko log dates aur maps ki book samajhte hain, par Tajpreet Ma'am jab padhati hain, toh purani empires, revolutions aur geography ek engaging movie ki tarah live ho jaati hain!" ✨</p>
+            </div>
+            <button class="primary-btn" onclick="nextStage(2, 3)">
+                <span>Continue Reading</span>
+                <span class="arrow">➔</span>
+            </button>
+        </section>
+
+        <section id="stage3" class="stage">
+            <div class="wax-seal gold-seal">ROYAL DECREE 🌟</div>
+            <div class="hero-icon">⚜️</div>
+            <h2 class="section-title">A Note From Student</h2>
+            <div class="parchment-quote student-quote">
+                <p>"Aapke teaching method ne History, Geography aur Civics ko super interesting bana diya hai. Aapka student aapke hard work aur patience ki dil se respect karta hai!" 🫡📜</p>
+            </div>
+            <button class="primary-btn" onclick="nextStage(3, 4)">
+                <span>Calibrate Map Compass</span>
+                <span class="arrow">➔</span>
+            </button>
+        </section>
+
+        <section id="stage4" class="stage">
+            <div class="wax-seal">MAP ROOM 🧭</div>
+            <div class="hero-icon">⏳</div>
+            <h2 class="section-title">Historical Vibe Sync</h2>
+            <p class="subtitle">Drag the compass slider to 100% to sync Tajpreet Ma'am's maximum teaching energy!</p>
+
+            <div class="compass-box">
+                <div class="compass-display" id="sliderVal">50%</div>
+                <input type="range" id="energyRange" min="0" max="100" value="50" oninput="handleSlider(this.value)">
+            </div>
+
+            <button class="primary-btn locked" id="stage4Btn" onclick="nextStage(4, 5)">
+                <span>100% Calibrated! Proceed</span>
+            </button>
+        </section>
+
+        <section id="stage5" class="stage">
+            <div class="wax-seal">ROYAL TRUTH 👑</div>
+            <div class="hero-icon">🪶</div>
+            <h2 class="section-title">World's Greatest SST Mentor?</h2>
+            <p class="subtitle">Is Tajpreet Ma'am officially the most inspiring, sharpest & best SST teacher?</p>
+
+            <div class="dodgy-actions">
+                <button class="primary-btn yes-btn" onclick="nextStage(5, 6)">YES! By Royal Order 💯</button>
+                <button class="primary-btn dodge-btn" id="noBtn" ontouchstart="dodgeNoBtn()" onclick="dodgeNoBtn()">NO 😜</button>
+            </div>
+            <p id="dodgyHint" class="hint-text"></p>
+        </section>
+
+        <section id="stage6" class="stage">
+            <div class="wax-seal">KNOWLEDGE TRIALS 🏺</div>
+            <div class="hero-icon">🛡️</div>
+            <h2 class="section-title">The Greatest Empire</h2>
+            <p class="subtitle">History mein sabse powerful aur inspiring influence kiska raha hai?</p>
+
+            <div class="quiz-stack">
+                <button class="quiz-option" onclick="wrongQuizChoice(this)">Roman Empire's Conquests 🏛️</button>
+                <button class="quiz-option" onclick="wrongQuizChoice(this)">Alexander's Expedition ⚔️</button>
+                <button class="quiz-option correct-opt" onclick="nextStage(6, 7)">Tajpreet Ma'am's SST Class! ✨</button>
+            </div>
+            <p id="quizError" class="hint-text"></p>
+        </section>
+
+        <section id="stage7" class="stage">
+            <div class="wax-seal">ANCIENT FORMULA 🧙‍♂️</div>
+            <div class="hero-icon">🔮</div>
+            <h2 class="section-title">The Master Equation</h2>
+            <div class="rune-box">
+                <code>SST = History + Maps + (Tajpreet Ma'am's Magic)</code>
+            </div>
+            <p class="subtitle">The equation is complete! Knowledge and inspiration are now infinite across time!</p>
+
+            <button class="primary-btn" onclick="nextStage(7, 8)">
+                <span>Claim Royal Honor</span>
+                <span class="arrow">➔</span>
+            </button>
+        </section>
+
+        <section id="stage8" class="stage">
+            <div class="wax-seal gold-seal">ROYAL HONORS 🏆</div>
+            <h2 class="section-title">Best SST Teacher 2026</h2>
+            <p class="subtitle">Tap the Golden Emblem to unseal your official Teacher's Day scroll!</p>
+
+            <div class="artifact-trigger" onclick="nextStage(8, 9)">
+                <div class="artifact-glow"></div>
+                <div class="artifact-emoji">👑</div>
+            </div>
+        </section>
+
+        <section id="stage9" class="stage">
+            <div class="wax-seal gold-seal">HAPPY TEACHER'S DAY 🎉</div>
+            <div class="hero-icon">📜</div>
+            <h1 class="main-title gold-head">Tajpreet Ma'am You Are Legend!</h1>
+
+            <div class="final-scroll-card">
+                <p><b>Respected Tajpreet Ma'am,</b><br><br>
+                Thank you so much for turning SST into an exciting journey filled with stories, map logic, and engaging lessons! Aapka simple explanations dene ka tarika aur patience sabse best hai.<br><br>
+                Wishing you a wonderful Teacher's Day filled with happiness, health, and endless success! 🏰✨</p>
+            </div>
+
+            <button class="primary-btn" onclick="nextStage(9, 10)">
+                <span>Unseal Final Dedication</span>
+                <span class="arrow">➔</span>
+            </button>
+        </section>
+
+        <section id="stage10" class="stage">
+            <div class="wax-seal gold-seal">ROYAL SEAL 🕯️</div>
+            <div class="hero-icon">🎓</div>
+            <h2 class="section-title">Explorer's Signature</h2>
+
+            <div class="master-signature-scroll">
+                <div class="star-badge">STUDENT DEDICATION</div>
+                <p class="sig-text">Crafted & Programmed with utmost respect by</p>
+                <h3 class="sig-name">CHANDRASHEKHAR</h3>
+                <p class="sig-tag">Your official "Most Unfavorite Student" 😜🏹</p>
+            </div>
+
+            <button class="primary-btn replay-btn" onclick="restartExperience()">
+                <span>Re-read The Scroll 🔄</span>
+            </button>
+        </section>
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
