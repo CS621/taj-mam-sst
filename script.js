@@ -65,7 +65,7 @@ function dodgeNoBtn() {
 
         setTimeout(() => {
             nextStage(5, 6);
-        }, 1800);
+        }, 4500);
         return;
     }
 
